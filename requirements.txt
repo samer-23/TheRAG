@@ -1,0 +1,16 @@
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+rank-bm25>=0.2.2
+tqdm>=4.66
+numpy>=1.26
+
+# Needs a working torch install (see README). Embeddings fall back to BM25-only
+# if this isn't installed or vectorstore/embeddings.npy wasn't built.
+sentence-transformers>=3.0
+
+# Answer generation: a local open-source model run on this machine's GPU/CPU
+# via transformers -- no API, no billing. HF_TOKEN is only needed for gated models.
+transformers>=4.45
+huggingface_hub>=0.30
+python-dotenv>=1.0  # loads HF_TOKEN / HF_LLM_MODEL from .env

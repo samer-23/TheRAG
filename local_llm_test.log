@@ -1,0 +1,194 @@
+W1114 02:07:08.567000 40704 site-packages\torch\utils\_pytree.py:630] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+W1114 02:07:08.642000 40704 site-packages\torch\utils\_pytree.py:630] <enum 'ScaleCalculationMode'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 6781.89it/s]
+Error while downloading from https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/model.safetensors: The read operation timed out
+Trying to resume download...
+Traceback (most recent call last):
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_sync\connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout: _ssl.c:1064: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\transformers\modeling_utils.py", line 676, in _get_resolved_checkpoint_files
+    resolved_archive_file = cached_file(pretrained_model_name_or_path, filename, **cached_file_kwargs)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\transformers\utils\hub.py", line 294, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\transformers\utils\hub.py", line 535, in cached_files
+    raise e
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\transformers\utils\hub.py", line 438, in cached_files
+    hf_hub_download(
+    ~~~~~~~~~~~~~~~^
+        path_or_repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\utils\_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\file_download.py", line 1028, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+        # Destination
+    ...<15 lines>...
+        dry_run=dry_run,
+    )
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\file_download.py", line 1251, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        incomplete_path=Path(blob_path + ".incomplete"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\file_download.py", line 1992, in _download_to_tmp_and_move
+    http_get(
+    ~~~~~~~~^
+        url_to_download,
+        ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\utils\_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\file_download.py", line 459, in http_get
+    return http_get(
+        url=url,
+    ...<8 lines>...
+        _tqdm_bar=progress,
+    )
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\utils\_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\file_download.py", line 377, in http_get
+    with http_stream_backoff(
+         ~~~~~~~~~~~~~~~~~~~^
+        method="GET",
+        ^^^^^^^^^^^^^
+    ...<4 lines>...
+        retry_on_status_codes=(408, 429),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as response:
+    ^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\utils\_http.py", line 681, in http_stream_backoff
+    yield from _http_backoff_base(
+    ...<9 lines>...
+    )
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\huggingface_hub\utils\_http.py", line 502, in _http_backoff_base
+    with client.stream(method=method, url=url, **kwargs) as response:
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 868, in stream
+    response = self.send(
+        request=request,
+    ...<2 lines>...
+        stream=True,
+    )
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout: _ssl.c:1064: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\samer\programming\space apps\RAG test sophisstacted data\rag.py", line 79, in get_llm
+    model = AutoModelForCausalLM.from_pretrained(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        LLM_MODEL,
+        ^^^^^^^^^^
+        token=token,
+        ^^^^^^^^^^^^
+        dtype=torch.bfloat16 if _device() == "cuda" else torch.float32,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).to(_device())
+    ^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\transformers\models\auto\auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\transformers\modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path=pretrained_model_name_or_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\samer\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\transformers\modeling_utils.py", line 756, in _get_resolved_checkpoint_files
+    raise OSError(
+    ...<4 lines>...
+    ) from e
+OSError: Can't load the model for 'Qwen/Qwen2.5-1.5B-Instruct'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'Qwen/Qwen2.5-1.5B-Instruct' is the correct path to a directory containing a file named pytorch_model.bin.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+    rag.warmup(index)
+    ~~~~~~~~~~^^^^^^^
+  File "C:\Users\samer\programming\space apps\RAG test sophisstacted data\rag.py", line 97, in warmup
+    get_llm()
+    ~~~~~~~^^
+  File "C:\Users\samer\programming\space apps\RAG test sophisstacted data\rag.py", line 87, in get_llm
+    raise RuntimeError(
+    ...<2 lines>...
+    ) from e
+RuntimeError: Could not load local model 'Qwen/Qwen2.5-1.5B-Instruct': Can't load the model for 'Qwen/Qwen2.5-1.5B-Instruct'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'Qwen/Qwen2.5-1.5B-Instruct' is the correct path to a directory containing a file named pytorch_model.bin.
+If this is a gated model, put HF_TOKEN=hf_... in a .env file next to main.py.
